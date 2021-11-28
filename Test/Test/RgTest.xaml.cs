@@ -9,6 +9,9 @@ using Xamarin.CommunityToolkit.ObjectModel;
 
 namespace Test
 {
+    // Create delegate without Argument
+    public delegate void NoArgs();
+
     public partial class MyPopup : Rg.Plugins.Popup.Pages.PopupPage
     {
         public ICommand PressedCommand => new Command(() => {
@@ -16,7 +19,17 @@ namespace Test
         });
 
         private int count = 10;
-        public int Count { get => count; set { count = value; OnPropertyChanged(nameof(Count)); } }
+        public int Count {
+            get => count;
+            set {
+                count = value;
+                OnPropertyChanged(nameof(Count));
+                Callback?.Invoke();  // Notify the change
+            }
+        }
+
+        public event NoArgs Callback;
+        public event NoArgs OnDispose;
 
         public MyPopup()
         {
@@ -31,6 +44,7 @@ namespace Test
         protected override void OnDisappearing()
         {
             base.OnDisappearing();
+            OnDispose?.Invoke();
         }
 
         // ### Methods for supporting animations in your popup page ###

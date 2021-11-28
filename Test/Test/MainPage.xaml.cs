@@ -25,9 +25,31 @@ namespace Test
             InitializeComponent();
         }
 
-        private void Button_Clicked(object sender, EventArgs e) => Rg.Plugins.Popup.Services.PopupNavigation.Instance.PushAsync(new MyPopup());
 
         private void MainWindowButton_Clicked(object sender, EventArgs e) => Count++;
+
+
+        #region Rg.Plugin.Popup Test With Callback
+        
+        MyPopup TestPopup;
+
+        private void Button_Clicked(object sender, EventArgs e)
+        {
+            TestPopup = new MyPopup();
+            TestPopup.Callback += TestPopup_Callback;
+            TestPopup.OnDispose += TestPopup_OnDispose;
+            Rg.Plugins.Popup.Services.PopupNavigation.Instance.PushAsync(TestPopup);
+        }
+
+        private void TestPopup_OnDispose()
+        {
+            TestPopup.Callback -= TestPopup_Callback;
+            TestPopup.OnDispose -= TestPopup_OnDispose;
+        }
+
+        private void TestPopup_Callback() => Count = TestPopup.Count; 
+        
+        #endregion
 
     }
 }
