@@ -1,7 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Test.MainPage">
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             x:Class="Test.MainPage"
+             x:Name="this">
 
     <StackLayout>
         <Frame BackgroundColor="#2196F3" Padding="24" CornerRadius="0">
@@ -20,6 +22,32 @@
             </Label.FormattedText>
         </Label>
         <Button Text="Test Popup" Clicked="Button_Clicked"/>
+
+        <Frame BackgroundColor="Aquamarine"
+                   BorderColor="Green"
+                   HasShadow="True"
+                   CornerRadius="12"
+                   Padding="8, 3, 8, 8"
+                   VerticalOptions="Center" 
+                   HorizontalOptions="Center"
+                   >
+            <StackLayout >
+
+                <StackLayout xct:TouchEffect.Command="{Binding Source={x:Reference this}, Path=PressedCommand}" BackgroundColor="Beige">
+                    <Label Text="MainWindow Frame" HorizontalOptions="Center" Padding="10"/>
+                    <Label Text="Test Counter in main Window" HorizontalOptions="Center" Padding="10"/>
+                    <Label Text="{Binding Source={x:Reference this}, Path=Count}" HorizontalOptions="Center" Padding="10"/>
+                </StackLayout>
+
+                <Label Text="  MainWindowButton Working ?  "
+                           VerticalOptions="CenterAndExpand"
+                           HorizontalOptions="Center"
+                           BackgroundColor="Red"
+                           />
+                <Button Text="test" Clicked="MainWindowButton_Clicked"/>
+            </StackLayout>
+        </Frame>
+        
     </StackLayout>
 
 </ContentPage>

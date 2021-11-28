@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage 
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+    xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+    xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+    x:Class="Test.MyPopup"
+    x:Name="this"
+    >
+
+    <!--You can set an animation in the xaml file or in the csharp code behind-->
+    <pages:PopupPage.Animation>
+        <animations:ScaleAnimation 
+        PositionIn="Center"
+        PositionOut="Center"
+        ScaleIn="1.2"
+        ScaleOut="0.8"
+        DurationIn="400"
+        DurationOut="300"
+        EasingIn="SinOut"
+        EasingOut="SinIn"
+        HasBackgroundAnimation="True"/>
+    </pages:PopupPage.Animation>
+
+    <!--You can use any elements here which are extended from Xamarin.Forms.View-->
+    <Frame BackgroundColor="Aquamarine"
+           BorderColor="Green"
+           HasShadow="True"
+           CornerRadius="12"
+           Padding="8, 3, 8, 8"
+           VerticalOptions="Center" 
+           HorizontalOptions="Center"
+           >
+        <StackLayout >
+
+            <StackLayout xct:TouchEffect.Command="{Binding  Source={x:Reference this}, Path=PressedCommand}">
+                <Label Text="Rg.plugin" HorizontalOptions="Center" Padding="10"/>
+                <Label Text="Test Window" HorizontalOptions="Center" Padding="10"/>
+                <Label Text="{Binding  Source={x:Reference this}, Path=Count}" HorizontalOptions="Center" Padding="10"/>
+            </StackLayout>
+
+            <Label Text="  Button Working ?  "
+                   VerticalOptions="CenterAndExpand"
+                   HorizontalOptions="Center"
+                   BackgroundColor="Red"
+                   />
+            <Button Text=" Test Me " HorizontalOptions="Center" Clicked="Button_Clicked"/>
+        </StackLayout>
+    </Frame>
+
+</pages:PopupPage>

@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test.Android", "Test\Test.A
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test.iOS", "Test\Test.iOS\Test.iOS.csproj", "{6B64FEF6-03F1-483D-9F62-788054B64C38}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test\Test.csproj", "{6B23B5D2-132A-4F7F-BCCD-767ADD660BD3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test", "Test\Test\Test.csproj", "{6B23B5D2-132A-4F7F-BCCD-767ADD660BD3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -100,7 +100,6 @@ Global
 		{26EBB44C-566D-43B2-A37E-36F2758AB050}.Release|x86.Build.0 = Release|Any CPU
 		{26EBB44C-566D-43B2-A37E-36F2758AB050}.Release|x86.Deploy.0 = Release|Any CPU
 		{6B64FEF6-03F1-483D-9F62-788054B64C38}.Debug|Any CPU.ActiveCfg = Debug|iPhoneSimulator
-		{6B64FEF6-03F1-483D-9F62-788054B64C38}.Debug|Any CPU.Build.0 = Debug|iPhoneSimulator
 		{6B64FEF6-03F1-483D-9F62-788054B64C38}.Debug|Any CPU.Deploy.0 = Debug|iPhoneSimulator
 		{6B64FEF6-03F1-483D-9F62-788054B64C38}.Debug|ARM.ActiveCfg = Debug|iPhone
 		{6B64FEF6-03F1-483D-9F62-788054B64C38}.Debug|ARM.Build.0 = Debug|iPhone
@@ -118,7 +117,6 @@ Global
 		{6B64FEF6-03F1-483D-9F62-788054B64C38}.Debug|x86.Build.0 = Debug|iPhoneSimulator
 		{6B64FEF6-03F1-483D-9F62-788054B64C38}.Debug|x86.Deploy.0 = Debug|iPhoneSimulator
 		{6B64FEF6-03F1-483D-9F62-788054B64C38}.Release|Any CPU.ActiveCfg = Release|iPhoneSimulator
-		{6B64FEF6-03F1-483D-9F62-788054B64C38}.Release|Any CPU.Build.0 = Release|iPhoneSimulator
 		{6B64FEF6-03F1-483D-9F62-788054B64C38}.Release|Any CPU.Deploy.0 = Release|iPhoneSimulator
 		{6B64FEF6-03F1-483D-9F62-788054B64C38}.Release|ARM.ActiveCfg = Release|iPhoneSimulator
 		{6B64FEF6-03F1-483D-9F62-788054B64C38}.Release|ARM.Build.0 = Release|iPhoneSimulator

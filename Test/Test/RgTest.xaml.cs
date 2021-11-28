@@ -2,14 +2,22 @@
 using System;
 using System.ComponentModel;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Xamarin.CommunityToolkit.ObjectModel;
 
 namespace Test
 {
-    [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MyPopup : Rg.Plugins.Popup.Pages.PopupPage
     {
+        public ICommand PressedCommand => new Command(() => {
+            Count++;
+        });
+
+        private int count = 10;
+        public int Count { get => count; set { count = value; OnPropertyChanged(nameof(Count)); } }
+
         public MyPopup()
         {
             InitializeComponent();
@@ -85,6 +93,12 @@ namespace Test
         {
             // Return false if you don't want to close this popup page when a background of the popup page is clicked
             return base.OnBackgroundClicked();
+        }
+
+        private void Button_Clicked(object sender, EventArgs e)
+        {
+            Count++;
+
         }
     }
 }
